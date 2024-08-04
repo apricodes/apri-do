@@ -1,7 +1,8 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
-    import supabaseStore from "$lib/stores/supabaseStore";
+
     import { enhance } from '$app/forms';
+    import { supabase } from "../../../supabase";
 
     let userEmail: string;
     let userPassword: string;
@@ -20,8 +21,8 @@
 
     async function handleLogin() {
         credentialInvalid = false;
-        if ($supabaseStore) {
-            const { error } = await $supabaseStore.auth.signInWithPassword({
+        if (supabase) {
+            const { error } = await supabase.auth.signInWithPassword({
                 email: userEmail,
                 password: userPassword,
                 options: {
@@ -34,14 +35,15 @@
                     credentialInvalid = true;
                 }
             } else {
+
                 goto("/");
             }
         }
     }
 
     async function handleMagicLink() {
-        if ($supabaseStore) {
-            const { error } = await $supabaseStore.auth.signInWithOtp({
+        if (supabase) {
+            const { error } = await supabase.auth.signInWithOtp({
                 email: userEmail,
                 options: {
                     emailRedirectTo: "/",

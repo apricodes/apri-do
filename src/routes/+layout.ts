@@ -4,7 +4,6 @@ import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from '$env/static/publi
 import type { LayoutLoad } from './$types'
 import { redirect } from '@sveltejs/kit'
 import sessionStore from "$lib/stores/sessionStore";
-import supabaseStore from '$lib/stores/supabaseStore';
 
 export const load: LayoutLoad = async ({ fetch, data, depends }) => {
   depends('supabase:auth')
@@ -36,7 +35,6 @@ export const load: LayoutLoad = async ({ fetch, data, depends }) => {
   } = await supabase.auth.getSession()
 
   sessionStore.set(session);
-  supabaseStore.set(supabase);
 
   return { supabase, session }
 }

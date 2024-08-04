@@ -3,7 +3,7 @@
     import "../app.css";
 	import { invalidate } from '$app/navigation'
 	import { onMount } from 'svelte'
-    import Navbar from "$lib/components/account/Navbar.svelte";
+    import Navbar from "$lib/components/app/Navbar.svelte";
     import { redirect } from "@sveltejs/kit";
 	import { page } from '$app/stores';
     import AuthCheck from "$lib/components/auth/AuthCheck.svelte";
@@ -28,7 +28,7 @@
 </script>
 
 <svelte:head>
-	<title>User Management</title>
+	<title>Apri-Do</title>
 </svelte:head>
 
 <AuthCheck>

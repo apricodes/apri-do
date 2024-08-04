@@ -1,11 +1,11 @@
 <script lang="ts">
-    import supabaseStore from "$lib/stores/supabaseStore";
+    import { supabase } from "../../../supabase";
 
     let email: string = "";
 
     async function handlePasswordReset(email: string) {
         const { data, error } =
-            await $supabaseStore?.auth.resetPasswordForEmail(email, {
+            await supabase?.auth.resetPasswordForEmail(email, {
                 redirectTo: "auth/reset-password",
             });
     }

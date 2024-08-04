@@ -1,10 +1,10 @@
 <script>
-  import Avatar from "./Avatar.svelte";
+  import Avatar from "../account/Avatar.svelte";
 </script>
 
 <div class="navbar bg-base-100">
   <div class="flex-1">
-    <a href="/" class="btn btn-ghost text-xl">To-Do List</a>
+    <a href="/" class="btn btn-ghost text-xl">Apri-Do</a>
   </div>
   <div class="flex-none gap-2">
     <div class="form-control">
